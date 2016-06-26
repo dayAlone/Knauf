@@ -1,0 +1,32 @@
+.user
+
+    display: flex
+    align-items: center
+    opacity: 0
+    pointer-events: none
+    transition: .3s opacity
+    &--active
+        pointer-events: all
+        opacity: 1
+
+    &__name
+        font-weight 400
+        font-size 17px
+        line-height 1
+        display none
+        +above('l')
+            display block
+        a
+            font-size 13px
+            color #444445
+            text-decoration none
+    &__image
+        size 30px
+        background-size cover
+        border-radius: 50%
+        border 2px solid white
+
+        background-color white
+        +above('l')
+            size 45px
+            margin-right 10px

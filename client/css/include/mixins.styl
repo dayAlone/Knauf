@@ -1,0 +1,46 @@
+border-line(color=rgba(0,0,0,1), top=calc(100% - 3px))
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 50%, color 50%);
+    background-repeat: repeat-x;
+    background-size: 2px 2px;
+    background-position: 0 top;
+    &:hover
+        text-decoration: none
+
+bgImages(name, type = 'jpg')
+    background-image url(/layout/images/name.680.type)
+    @media (min-width: 680px)
+        background-image url(/layout/images/name.1024.type)
+    @media (min-width: 1024px)
+        background-image url(/layout/images/name.1600.type)
+    @media (min-width: 1600px)
+        background-image url(/layout/images/name.2600.type)
+
+border-dashed(color=rgba(0,0,0,1), top=calc(100% - 2px), size=12px)
+	background-image: linear-gradient(left, color 70%, transparent 70%)
+	background-repeat: repeat-x;
+	background-size: size 1px;
+	background-position: 0 top;
+	&:hover
+		text-decoration: none
+
+rupture.scale =        0    320px           480px         720px           960px         1025px           1366px         1600px
+rupture.scale-names = 'no'  'mobile_small'  'mobile_big'  'tablet_small'  'tablet_big'  'desktop_small'  'desktop_big'  'hd'
+rupture.mobile-cutoff = 720px
+rupture.desktop-cutoff = 1025px
+rupture.anti-overlap = -1px
+rupture.hd-cutoff = 1600px
+
+media_at(medias)
+    for m in medias
+        if m == 'mobile'
+            +media_at('mobile_small' 'mobile_big')
+                {block}
+        if m == 'tablet'
+            +media_at('tablet_small' 'tablet_big')
+                {block}
+        if m == 'desktop'
+            +media_at('desktop_small' 'desktop_big')
+                {block}
+        if m != 'desktop' && m != 'tablet' && m!= 'mobile'
+            +at(m)
+                {block}

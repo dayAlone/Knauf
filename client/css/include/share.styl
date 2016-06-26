@@ -1,0 +1,52 @@
+.share
+
+    background-color rgba(0, 0, 0, 0.25)
+    border 2px solid white
+    border-radius 4px
+    margin 35px 7px 0
+    display: inline-flex
+    justify-content: center
+    align-items: center
+    transition: .3s background
+    size 50px
+    +above('m')
+        size 64px
+    &__icon
+        max-width: 33px
+        max-height: 29px
+        fill alpha(white, 1)
+        text-decoration none
+        transition .3s fill
+    &--twitter
+        & ^[0]__icon
+            max-width: 30px
+    &--vkontakte:hover
+        background #526e8f
+    &--facebook:hover
+        background #425497
+    &--instagram:hover
+        background #00487a
+    &--twitter:hover
+        background #01b7ec
+    &--odnoklassniki:hover
+        background #f6903b
+    &--viber:hover
+        background #7d539f
+    a&--small
+        size 35px
+        background-image none !important
+        margin 0 3px !important
+
+        +above('m')
+            size 35px
+
+        & ^[0]__icon
+            max-width: 19px
+            max-height: 18px
+    &:focus
+        outline 0
+.social-likes
+    &__icon
+        display none
+    &__button
+        display: flex

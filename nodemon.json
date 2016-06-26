@@ -1,0 +1,6 @@
+{
+  "verbose": "true",
+  "stdout": "false",
+  "ignore": ["upload/**/*", "tmp/**/*", "client/**/*", "node_modules/**/*", "public/**/*"],
+  "ext": "js json yml"
+}

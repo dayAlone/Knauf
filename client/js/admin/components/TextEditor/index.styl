@@ -1,0 +1,30 @@
+body
+    font-family: 'proxima-nova', 'Helvetica Neue', 'Arial', sans-serif !important
+
+a
+    cursor: pointer
+
+.tab-pane
+    padding-top 0 !important
+
+.label
+    position relative
+    top -6px
+
+.tab-left .nav-pills.nav-stacked
+    position: sticky
+    top 20px
+
+.footer
+    position fixed
+    bottom 0
+    left 0
+    z-index: 30
+    padding 20px 0
+    width: 100%
+    background-color white
+    transform: translateY(100%)
+    transition: .3s box-shadow, .3s transform
+    &--active
+        transform: translateY(0)
+        box-shadow: 0 -10px 30px alpha(black, .1)
