@@ -8,7 +8,7 @@ const SearchResults = (props) => {
     const results = [
         ...texts.filter(el => el.code.indexOf(search) !== -1 && el.type !== 'section'),
         ...texts.filter(el => el.name.indexOf(search) !== -1 && el.type !== 'section')
-    ]
+    ].filter((el, key, self) => self.indexOf(el) === key)
     return (
         <div>
             <h2 className='h1 mtm ptn mbxl'>

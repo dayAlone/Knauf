@@ -4,7 +4,14 @@ import socials from './socials'
 import api from './api'
 
 export default {
-    db: 'postgres://localhost:5432/test3',
+    db: {
+        dialect: 'postgres',
+        database: 'knauf',
+        host: 'localhost',
+        username: '',
+        password: '',
+        port: 5432
+    },
     branch: 'master',
     ip: 'localhost',
     port: 3000,

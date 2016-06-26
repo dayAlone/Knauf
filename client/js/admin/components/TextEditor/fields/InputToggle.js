@@ -49,8 +49,9 @@ class Field extends Component {
     }
     render() {
         return (
-            <div className='mtxl mbn'>
+            <div className='mts mbn' style={{ transform: 'scale(.6)', transformOrigin: 'left center' }}>
                 <Toggle
+                    className='toggle-switch toggle-switch-lg'
                     checked={this.state.value}
                     onChange={this.onChange}
                 />

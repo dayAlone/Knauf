@@ -5,7 +5,7 @@ import autoprefixer from 'autoprefixer'
 const webpackConfig = {
     entry: {
         admin: [
-            'webpack-dev-server/client?http://127.0.0.1:8080', // WebpackDevServer host and port
+            'webpack-dev-server/client?http://127.0.0.1:8001', // WebpackDevServer host and port
             'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
             `${config.dir}/client/js/admin/index.js`,
         ],
@@ -17,7 +17,7 @@ const webpackConfig = {
         filename: '[name].js',
         pathinfo: true
     },
-    devtool: 'cheap-source-map',
+    //devtool: 'cheap-source-map',
     module: {
         noParse: [/moment.js/],
         loaders: [

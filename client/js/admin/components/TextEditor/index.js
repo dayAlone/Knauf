@@ -2,10 +2,6 @@ import './index.styl'
 
 import React, { Component } from 'react'
 import { LeftTabs, Tab } from 'pui-react-tabs'
-import { BasicPanelAlt } from 'pui-react-panels'
-
-
-import Header from './Header'
 import Footer from './Footer'
 import TabsBlock from './TabBlock'
 import SearchResults from './SearchResults'
@@ -39,33 +35,26 @@ class TextEditor extends Component {
         const { texts: { values: texts, search, tab } } = this.props
         return (
             <div>
-                <div className='container mtxxl'>
-                    <BasicPanelAlt header={<Header />}>
-                        <LeftTabs
-                            onSelect={this.onSelect}
-                            defaultActiveKey={search ? 'search' : tab}
-                            tabWidth={5}
-                            paneWidth={19}
-                            className='pll prl ptxl pbxxl'
-                        >
-                            {texts
-                                .filter(el => el.type === 'section' && el.level === '1')
-                                .map((el, key) =>
-                                    <Tab key={key} eventKey={key} title={el.name}>
-                                        <TabsBlock name={el.name} code={el.code} />
-                                    </Tab>
-                                )}
-                            {search ?
-                                <Tab key='search' eventKey='search' title='Результаты поиска'>
-                                    <SearchResults />
-                                </Tab>
-                                : null}
-                        </LeftTabs>
-                    </BasicPanelAlt>
-                    <div className='txt-r type-xs mtl type-neutral-4 mbl' style={{ minWidth: '100%' }}>
-                        Copyright &copy; 🦁
-                    </div>
-                </div>
+                <LeftTabs
+                    onSelect={this.onSelect}
+                    defaultActiveKey={search ? 'search' : tab}
+                    tabWidth={5}
+                    paneWidth={19}
+                    className='pll prl ptxl pbxxl'
+                >
+                    {texts
+                        .filter(el => el.type === 'section' && el.level === '1')
+                        .map((el, key) =>
+                            <Tab key={key} eventKey={key} title={el.name}>
+                                <TabsBlock name={el.name} code={el.code} />
+                            </Tab>
+                        )}
+                    {search ?
+                        <Tab key='search' eventKey='search' title='Результаты поиска'>
+                            <SearchResults />
+                        </Tab>
+                        : null}
+                </LeftTabs>
                 <Footer />
             </div>
         )

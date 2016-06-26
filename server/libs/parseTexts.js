@@ -11,7 +11,7 @@ function parseText(object, prefix = false, level = 0, sort = 0) {
                 level: level + 1,
                 active: true
             }
-            if (typeof resourse[key] === 'object' && !resourse[key].value) {
+            if (typeof resourse[key] === 'object' && resourse[key].value === undefined) {
                 result[current.code] = {
                     ...current,
                     type: 'section',
@@ -24,7 +24,7 @@ function parseText(object, prefix = false, level = 0, sort = 0) {
                 result[current.code] = {
                     ...current,
                     type: resourse[key].type || 'text',
-                    value: resourse[key].value || resourse[key]
+                    value: resourse[key].value !== undefined ? resourse[key].value : resourse[key]
                 }
             }
             i++

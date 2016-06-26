@@ -37,8 +37,7 @@ class Footer extends Component {
         const { saving } = this.props.texts
         const changes = Object.keys(this.props.texts.changes).length
         return (
-            <div className={`footer ${changes > 0 ? 'footer--active' : null}`}>
-                <div className='container'>
+            <div className={`footer prxl plxl ${changes > 0 ? 'footer--active' : null}`}>
                     <Row>
                         <Col xs={12}>
                             <LowlightButton onClick={this.onReset}>Отменить</LowlightButton>
@@ -56,8 +55,6 @@ class Footer extends Component {
                             }
                         </Col>
                     </Row>
-
-                </div>
             </div>
         )
     }

@@ -19,7 +19,6 @@ import rupture from 'rupture'
 const browserSync = require('browser-sync').create()
 const { folders: { dist: dist } } = config
 const { nodemon, postcss, stylus, plumber, notify, svgmin, tinypng, svgstore, rename } = require('gulp-load-plugins')()
-import responsiveValues from '.././postcss-responsive-with-coefficients/index.js'
 
 const jsSource = ['client/js/**/*.js']
 const imagesSource = ['client/images/**/*.jpg', 'client/images/**/*.gif', 'client/images/**/*.png']
@@ -95,7 +94,7 @@ gulp.task('css:create', () => (
     gulp.src('client/css/style.styl')
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(stylus({ use: stylusFunctions, cache: false }))
-    .pipe(postcss([base64({ baseDir: `${dist}/css/` }), mqpacker({ sort: true }), responsiveValues()]))
+    .pipe(postcss([base64({ baseDir: `${dist}/css/` }), mqpacker({ sort: true })]))
     .pipe(gulp.dest(`${dist}/css/`))
 ))
 
@@ -123,7 +122,7 @@ gulp.task('webpack:server', () => {
                 hash: false
             }
         })
-    server.listen(8080)
+    server.listen(8001)
 })
 
 gulp.task('scripts', () => (

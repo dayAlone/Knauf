@@ -20,16 +20,16 @@ class Input extends Component {
         super()
         const { texts: { changes }, el: { code, value } } = props
         this.state = {
-            image: changes[code] ? changes[code] : value
+            image: changes[code] ? changes[code] : value.length > 0 ? value : false
         }
         this.uploadImage = this.uploadImage.bind(this)
         this.onOpenClick = this.onOpenClick.bind(this)
         this.onRemoveClick = this.onRemoveClick.bind(this)
     }
     componentWillReceiveProps(nextProps) {
-        const { texts: { changes }, el: { code } } = nextProps
+        const { texts: { changes }, el: { code, value } } = nextProps
         if (!changes[code]) {
-            this.setState({ image: this.props.el.value })
+            this.setState({ image: value.length > 0 ? value : false })
         }
     }
     onOpenClick() {

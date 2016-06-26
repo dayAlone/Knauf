@@ -10,11 +10,11 @@ import base64 from 'postcss-inline-base64'
 
 export default {
     entry: {
-        index: config.dir + '/client/js/index.js',
-        editor: config.dir + '/client/js/editor.js'
+        admin: `${config.dir}/client/js/admin/index.js`,
+        index: `${config.dir}/client/js/index.js`,
     },
     output: {
-        path: config.dir + '/public/js/',
+        path: `${config.dir}/public/js/`,
         publicPath: '/layout/js/',
         filename: '[name].js',
         pathinfo: true
@@ -66,6 +66,9 @@ export default {
             compress: {
                 warnings: false
             }
-        })
+        }),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': '"production"'
+        }),
     ]
 }

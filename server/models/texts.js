@@ -49,6 +49,8 @@ const prepareValue = (text, options, fn) => {
                 .toFile(dist)
                 //.then(() => fn(null, text))
             fn(null, text)
+        } else {
+            fn(null, text)
         }
 
         break

@@ -10,6 +10,5 @@ export default sequelize => function* () {
         },
         blob: TEXT
     })
-    yield Sessions.sync()
     return Sessions
 }

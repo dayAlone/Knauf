@@ -1,11 +1,16 @@
 import Router from 'koa-router'
 import co from 'co'
 import config from 'config'
+import request from 'request-promise'
 
 export default function (app) {
     const router = new Router()
     router
         .get('/', async (ctx) => {
+            const session = ctx.session
+            if (!session.geiop) {
+                session.geiop = await request.get({ url: `http://freegeoip.net/json/${ctx.request.ip}`, json: true })
+            }
             ctx.body = ctx.render('index')
             /*
             const texts = {
