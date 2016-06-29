@@ -4,7 +4,7 @@ export default {
     ...config,
     https: false,
     domain: '12tk.ru',
-    port: 80,
+    port: 8080,
     db: {
         dialect: 'postgres',
         database: 'knauf',
