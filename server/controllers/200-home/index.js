@@ -9,7 +9,7 @@ export default function (app) {
         .get('/', async (ctx) => {
             const session = ctx.session
             if (!session.geiop) {
-                session.geiop = await request.get({ url: `http://freegeoip.net/json/${ctx.request.ip}`, json: true })
+                session.geiop = await request.get({ url: `http://freegeoip.net/json/${ctx.request.ips}`, json: true })
             }
             ctx.body = session.geiop//ctx.render('index')
             /*
