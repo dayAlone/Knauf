@@ -10,6 +10,8 @@ const app = new Koa()
 
 
 app.keys = [secret]
+app.proxy = true
+
 
 co(function*() {
     const connection = yield initConnection()
