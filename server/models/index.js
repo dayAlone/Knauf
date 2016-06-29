@@ -26,12 +26,6 @@ export default function*(connection) {
 
         const { Code, User, Seller, City, Store, Review } = models
 
-
-
-        for (const id in models) {
-            yield models[id].sync()
-        }
-
         User.hasOne(Code)
         User.hasOne(Review)
         Review.belongsTo(User)
