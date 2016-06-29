@@ -25,17 +25,22 @@ export default function*(connection) {
 
 
         const { Code, User, Seller, City, Store, Review } = models
-        User.hasOne(Code)
-        User.hasOne(Review)
-        Review.belongsTo(User)
-        Code.belongsTo(Seller)
-        Store.belongsTo(City)
+
 
 
         for (const id in models) {
             yield models[id].sync()
         }
 
+        User.hasOne(Code)
+        User.hasOne(Review)
+        Review.belongsTo(User)
+        Code.belongsTo(Seller)
+        Store.belongsTo(City)
+
+        for (const id in models) {
+            yield models[id].sync()
+        }
         /*
             const code = yield Code.findOrCreate({ where: { id: 'KNKXFRAWHM' } })
 
