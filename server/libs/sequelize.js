@@ -4,7 +4,7 @@ import { db } from 'config'
 
 export default function* () {
     let connection
-    const url = `${db.dialect}://${db.host}:${db.port}/${db.database}`
+    const url = `${db.dialect}://${db.username ? `${db.username}:${db.password}` : ''}${db.host}:${db.port}/${db.database}`
     console.log(url)
     try {
         connection = new Sequelize(url, {
