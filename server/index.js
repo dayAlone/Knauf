@@ -8,16 +8,12 @@ import initConnection from './libs/sequelize'
 
 const app = new Koa()
 
-//import sendSms from './libs/sendSms'
 
 app.keys = [secret]
 
 co(function*() {
     const connection = yield initConnection()
     const models = yield initModels(connection)
-
-    //let result = yield sendSms('+79031826622', 'я повелитель смс')
-    //console.log(result)
 
     initMiddlewares(app, connection)
     initControllers(app, models)

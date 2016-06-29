@@ -1,3 +1,4 @@
+import sendSms from './libs/sendSms'
 import Router from 'koa-router'
 
 export default function (app, models) {
@@ -23,13 +24,16 @@ export default function (app, models) {
                         await code.setSeller(seller[0])
 
                         result = 'All good'
+                        await sendSms(phone, 'All good')
 
                     } else {
                         result = 'Code is activated'
+                        await sendSms(phone, 'Code is activated')
                     }
 
                 } else {
                     result = 'Code not found'
+                    await sendSms(phone, 'Code not found')
                 }
 
             }
