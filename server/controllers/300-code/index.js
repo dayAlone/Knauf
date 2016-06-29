@@ -1,4 +1,4 @@
-import sendSms from './libs/sendSms'
+import sendSms from '../../libs/sendSms'
 import Router from 'koa-router'
 
 export default function (app, models) {
