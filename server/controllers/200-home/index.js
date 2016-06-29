@@ -11,7 +11,7 @@ export default function (app) {
             if (!session.geiop) {
                 session.geiop = await request.get({ url: `http://freegeoip.net/json/${ctx.request.ips}`, json: true })
             }
-            ctx.body = session.geiop//ctx.render('index')
+            ctx.body = ctx.request //session.geiop//ctx.render('index')
             /*
             const texts = {
                 utm_campaign: {
