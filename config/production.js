@@ -9,8 +9,8 @@ export default {
         dialect: 'postgres',
         database: 'knauf',
         host: 'node110218-teploknauf.jelastic.regruhosting.ru',
-        username: '',
-        password: '',
+        username: 'knauf',
+        password: 'knauf@',
         port: 5432
     }
 }
