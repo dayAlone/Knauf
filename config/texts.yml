@@ -1,27 +1,53 @@
 seo:
-    name: 'Мета тэги'
+    name: Мета тэги
     values:
-        title: 'seo title'
-        description: 'seo description'
+        title:
+            type: string
+            value: seo title
+        description:
+            type: string
+            value: seo description
         sharings:
-            name: 'Картинки для шаринга в соц. сети'
+            name: Картинки для шаринга в соц. сети
             values:
                 vk:
-                    name: 'Шаринг для VK'
+                    name: Шаринг для VK
                     type: image
                     value: ''
                 tw:
-                    name: 'Шаринг для Twitter'
+                    name: Шаринг для Twitter
                     type: image
                     value: ''
                 fb:
-                    name: 'Шаринг для Facebook'
+                    name: Шаринг для Facebook
                     type: image
                     value: ''
+promo:
+    name: Промо-акция
+    values:
+        timer:
+            name: Дата и время для таймера
+            type: datetime
+            value: ''
+        terms:
+            name: Правила акции
+            value: ''
 links:
     name: 'Ссылки'
     values:
         vk:
-            name: Ссылка на VK.com
+            name: Ссылка на vk.com
+            type: link
+            value: ''
+        fb:
+            name: Ссылка на facebook.com
+            type: link
+            value: ''
+        tw:
+            name: Ссылка на twitter.com
+            type: link
+            value: ''
+        ok:
+            name: Ссылка на ok.ru
             type: link
             value: ''

@@ -46,7 +46,11 @@ class TextEditor extends Component {
                         .filter(el => el.type === 'section' && el.level === '1')
                         .map((el, key) =>
                             <Tab key={key} eventKey={key} title={el.name}>
-                                <TabsBlock name={el.name} code={el.code} />
+                                <h2 className='h1 mtm ptn mbxl'>
+                                    <strong>{el.name}</strong>
+                                    <span className='label label-primary bg-accent-5 type-sm mtn mll'>{el.code}</span>
+                                </h2>
+                                <TabsBlock elements={texts.filter(text => text.code.startsWith(`${el.code}_`))} />
                             </Tab>
                         )}
                     {search ?

@@ -1,8 +1,8 @@
 import request from 'request-promise'
 export default async (phone, text) => {
     const params = {
-        login: 'driveadv',
-        password: 'drivepass',
+        login: 'bdrive',
+        password: 'bdrivepass',
         sender: 'TeploKnauf',
         phone,
         sms_test: text

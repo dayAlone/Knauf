@@ -16,9 +16,8 @@ co(function*() {
     const connection = yield initConnection()
     const models = yield initModels(connection)
 
-
-//    let result = yield sendSms('+79658575587', 'test')
-//    console.log(result)
+    let result = yield sendSms('+79031826622', 'я повелитель смс')
+    console.log(result)
 
     initMiddlewares(app, connection)
     initControllers(app, models)

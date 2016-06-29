@@ -5,7 +5,7 @@ import { InputString } from './InputString'
 const Field = (props) => (
     <div className='txt-r'>
         <InputString el={props.el} className='mbm' />
-        {props.el.valueConverted.length > 0 ?
+        {props.el.valueConverted ?
             <a href={props.el.valueConverted} target='_blank' style={{ textDecoration: 'none' }}>
                 <span className='label label-primary bg-brand-7 mtxl'>
                     {props.el.valueConverted}
