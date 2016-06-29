@@ -33,7 +33,7 @@ export default function*(connection) {
         Store.belongsTo(City)
 
         for (const id in models) {
-            yield models[id].sync({force: true})
+            yield models[id].sync()
         }
         /*
             const code = yield Code.findOrCreate({ where: { id: 'KNKXFRAWHM' } })
