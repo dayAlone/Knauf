@@ -4,8 +4,10 @@ import { db } from 'config'
 
 export default function* () {
     let connection
+    const url = `${db.dialect}://${db.host}:${db.port}/${db.database}`
+    console.log(url)
     try {
-        connection = new Sequelize(`${db.dialect}://${db.host}:${db.port}/${db.database}`, {
+        connection = new Sequelize(url, {
             dialect: 'postgres',
             logging: false
         })
