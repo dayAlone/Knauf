@@ -9,9 +9,9 @@ export default function (app) {
         .get('/', async (ctx) => {
             const session = ctx.session
             if (!session.geiop) {
-                session.geiop = await request.get({ url: `http://freegeoip.net/json/${ctx.request.ips}`, json: true })
+                session.geiop = await request.get({ url: `http://freegeoip.net/json/${ctx.request.header['x-real-ip']}`, json: true })
             }
-            ctx.body = ctx.request //session.geiop//ctx.render('index')
+            ctx.body = session.geiop//ctx.render('index')
             /*
             const texts = {
                 utm_campaign: {
