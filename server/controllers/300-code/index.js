@@ -8,10 +8,10 @@ export default function (app, models) {
             const { phone, argument, reciver, keyword } = ctx.query
             const { Code, Seller } = models
 
-            if (phone && phone.length > 0 && keyword === 'NK' && reciver === '3443') {
+            if (phone && phone.length > 0 && reciver === '3443') {
 
                 let result
-                const code = await Code.findOne({ where: { id: keyword + argument } })
+                const code = await Code.findOne({ where: { id: (keyword + argument).toUpperCase() } })
 
                 if (code) {
                     if (code.active) {
@@ -24,18 +24,16 @@ export default function (app, models) {
                         await code.setSeller(seller[0])
 
                         result = 'All good'
-                        await sendSms(phone, 'All good')
 
                     } else {
                         result = 'Code is activated'
-                        await sendSms(phone, 'Code is activated')
                     }
 
                 } else {
                     result = 'Code not found'
-                    await sendSms(phone, 'Code not found')
-                }
 
+                }
+                await sendSms(`+${phone}`, result)
                 ctx.body = result
 
             }
