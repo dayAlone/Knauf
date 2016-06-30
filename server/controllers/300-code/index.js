@@ -26,7 +26,7 @@ export default function (app, models) {
                         result = 'All good'
 
                     } else {
-                        result = 'Code is activated'
+                        result = 'Code is already activated'
                     }
 
                 } else {
@@ -37,8 +37,6 @@ export default function (app, models) {
                 ctx.body = result
 
             }
-
-
 
         })
 

@@ -7,11 +7,13 @@ export default function (app) {
     const router = new Router()
     router
         .get('/', async (ctx) => {
+            /*
             const session = ctx.session
             if (!session.geiop) {
                 session.geiop = await request.get({ url: `http://freegeoip.net/json/${ctx.request.header['x-real-ip']}`, json: true })
             }
-            ctx.body = session.geiop//ctx.render('index')
+            */
+            ctx.body = null //ctx.render('index')
             /*
             const texts = {
                 utm_campaign: {
