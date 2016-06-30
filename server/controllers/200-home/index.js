@@ -13,7 +13,7 @@ export default function (app) {
                 session.geiop = await request.get({ url: `http://freegeoip.net/json/${ctx.request.header['x-real-ip']}`, json: true })
             }
             */
-            ctx.body = null //ctx.render('index')
+            ctx.body = 'Ready' //ctx.render('index')
             /*
             const texts = {
                 utm_campaign: {
