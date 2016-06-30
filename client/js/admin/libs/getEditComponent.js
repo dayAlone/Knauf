@@ -4,7 +4,7 @@ import { InputString, InputText, InputLink, InputImage, InputToggle } from '../c
 
 const getEditComponent = (el) => {
     switch (el.type) {
-    case 'text':
+    case 'html':
         return <InputText el={el} />
     case 'link':
         return <InputLink el={el} />

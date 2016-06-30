@@ -31,6 +31,7 @@ promo:
             value: ''
         terms:
             name: Правила акции
+            type: html
             value: ''
 links:
     name: 'Ссылки'
@@ -51,3 +52,22 @@ links:
             name: Ссылка на ok.ru
             type: link
             value: ''
+
+sms:
+    name: 'SMS'
+    values:
+        user:
+            name: SMS для покупателя
+            value: 'Ваш промо-код #CODE#!'
+        seller:
+            name: SMS для дилера
+            values:
+                ok:
+                    name: Код прошел проверку
+                    value: Код прошел проверку
+                already:
+                    name: Код уже был активирован ранее
+                    value: Код уже был активирован ранее
+                false:
+                    name: Код не найден
+                    value: Код не найден
