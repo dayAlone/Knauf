@@ -1,14 +1,19 @@
 import {
     USERS_LOADING_START,
     USERS_LOADING_END,
-    USERS_GET
+    USERS_GET,
+    USERS_PAGE_SET,
+    USERS_SORT_SET,
+    USERS_LIMIT_SET
 } from '../constants/users'
 
 const initialState = {
     values: [],
     loading: true,
     page: 0,
-    sort: 'id',
+    limit: 10,
+    sortBy: 'id',
+    sort: -1,
     search: ''
 }
 
@@ -28,6 +33,22 @@ export default (state = initialState, action) => {
         return {
             ...state,
             values: action.value
+        }
+    case USERS_PAGE_SET:
+        return {
+            ...state,
+            page: action.value
+        }
+    case USERS_SORT_SET:
+        return {
+            ...state,
+            sortBy: action.sortBy,
+            sort: action.sort,
+        }
+    case USERS_LIMIT_SET:
+        return {
+            ...state,
+            limit: action.limit,
         }
     default:
         return state

@@ -12,6 +12,7 @@ const TabBlock = (props) => (
                     {el.type !== 'section' ?
                         <FieldRow
                             el={el}
+                            key={el.code}
                             className={`mbxxl ${prevLevel > level ? 'mtxxl ptxxl' : ''}`}
                             style={{ paddingLeft: `${10 + (level - 2) * 25}px` }}
                         />

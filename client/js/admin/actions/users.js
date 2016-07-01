@@ -1,7 +1,10 @@
 import {
     USERS_LOADING_START,
     USERS_LOADING_END,
-    USERS_GET
+    USERS_GET,
+    USERS_PAGE_SET,
+    USERS_SORT_SET,
+    USERS_LIMIT_SET
 } from '../constants/users'
 
 
@@ -31,5 +34,33 @@ export function getUsers() {
                     value: response
                 })
             })
+    }
+}
+
+export function setPage(page) {
+    return (dispatch) => {
+        dispatch({
+            type: USERS_PAGE_SET,
+            value: page
+        })
+    }
+}
+
+export function setSort(sortBy, sort) {
+    return (dispatch) => {
+        dispatch({
+            type: USERS_SORT_SET,
+            sortBy,
+            sort
+        })
+    }
+}
+
+export function setLimit(limit) {
+    return (dispatch) => {
+        dispatch({
+            type: USERS_LIMIT_SET,
+            limit
+        })
     }
 }

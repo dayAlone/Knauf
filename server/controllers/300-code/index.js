@@ -20,7 +20,7 @@ export default function (app, models) {
 
                 if (code) {
                     if (code.active) {
-                        const seller = await Seller.findOrCreate({ where: { phone: phone.match(/\d+/g).join('') } })
+                        const seller = await Seller.findOrCreate({ where: { phone: `+${phone.match(/\d+/g).join('')}` } })
 
                         code.dateActivate = Date.now()
                         code.active = false

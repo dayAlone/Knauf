@@ -16,7 +16,7 @@ export default function configureStore(reducerRegistry) {
     const DevTools = require('../libs/DevTools')
 
     const storage = compose(
-        filter(['texts.search', 'texts.tab', 'texts.changes'])
+        filter(['texts.search', 'texts.tab', 'texts.changes', 'users.limit', 'users.sort', 'users.sortBy', 'users.page'])
     )(adapter(window.localStorage))
 
     const store = compose(
