@@ -34,6 +34,7 @@ class UserList extends Component {
         super()
         this.onPageClick = this.onPageClick.bind(this)
         this.getColumns = this.getColumns.bind(this)
+        this.getLimits = this.getLimits.bind(this)
         this.checkPageSort = this.checkPageSort.bind(this)
         this.onLimitClick = this.onLimitClick.bind(this)
     }
@@ -115,6 +116,21 @@ class UserList extends Component {
             }
         ].map(el => ({ ...el, sortable: false }))
     }
+
+    getLimits() {
+        const { users: { limit } } = this.props
+        return [10, 50, 100, 500]
+            .map(el =>
+                <button
+                    key={el}
+                    onClick={this.onLimitClick(el)}
+                    type='button'
+                    data-value={el}
+                    className={`btn btn-default ${limit === el ? 'selected' : ''}`}
+                >
+                    {el}
+                </button>)
+    }
     checkPageSort(column) {
         const { users: { sortBy, sort }, actions: { users: { setSort } } } = this.props
         return {
@@ -134,37 +150,25 @@ class UserList extends Component {
                         })
                         .slice(page * limit, page * limit + limit)
         return (
-            <div style={{ maxWidth: '100%', overflow: 'auto' }}>
-
+            <div>
                 <Row>
-                    <Col xs={12}>
-
-                    </Col>
+                    <Col xs={12} />
                     <Col xs={12} className='txt-r pbxl'>
                         <div className='btn-group'>
-                            {[10, 50, 100, 500]
-                                .map(el =>
-                                    <button
-                                        key={el}
-                                        onClick={this.onLimitClick(el)}
-                                        type='button'
-                                        data-value={el}
-                                        className={`btn btn-default ${limit === el ? 'selected' : ''}`}
-                                    >
-                                        {el}
-                                    </button>)}
+                            {this.getLimits()}
                         </div>
                     </Col>
                 </Row>
-                <Table
-                    columns={this.getColumns()}
-                    data={data}
-                    style={{ minWidth: '2500px' }}
-                    CustomRow={CustomRow}
-                    onCli
-                />
-
-                <Row>
+                <div style={{ maxWidth: '100%', overflow: 'auto' }}>
+                    <Table
+                        columns={this.getColumns()}
+                        data={data}
+                        style={{ minWidth: '2500px' }}
+                        CustomRow={CustomRow}
+                        className='mbn'
+                    />
+                </div>
+                <Row className='mtxl'>
                     <Col xs={12}>
                         {values.length / limit > 1 ?
                             <ReactPaginate
@@ -179,17 +183,7 @@ class UserList extends Component {
                     </Col>
                     <Col xs={12} className='txt-r pbl'>
                         <div className='btn-group'>
-                            {[10, 50, 100, 500]
-                                .map(el =>
-                                    <button
-                                        key={el}
-                                        onClick={this.onLimitClick(el)}
-                                        type='button'
-                                        data-value={el}
-                                        className={`btn btn-default ${limit === el ? 'selected' : ''}`}
-                                    >
-                                        {el}
-                                    </button>)}
+                            {this.getLimits()}
                         </div>
                     </Col>
                 </Row>

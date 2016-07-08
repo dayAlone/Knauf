@@ -118,6 +118,7 @@
     "koa-session-sequelize": "git+https://github.com/skv-headless/koa-session-sequelize.git",
     "lodash": "^4.12.0",
     "moment": "^2.13.0",
+    "msexcel-builder": "0.0.2",
     "mysql": "^2.11.1",
     "node-fetch": "^1.5.3",
     "npm-install-missing": "^0.1.4",
