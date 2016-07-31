@@ -19,17 +19,20 @@ export default () => function* (next) {
             fullUrl: `https://${this.request.host}${this.request.url}`
         }
 
-        for (const key in locals) {
-            localsFull[key] = locals[key]
-        }
+
 
         localsFull.env = process.env.NODE_ENV
 
         localsFull.query = this.query
 
         localsFull.user = this.req.user
+        localsFull.texts = this.texts
 
-        localsFull.cache = true
+        localsFull.cache = process.env.NODE_ENV === 'production'
+
+        for (const key in locals) {
+            localsFull[key] = locals[key]
+        }
 
         const templatePathResolved = path.join(config.templates.root, `${templatePath}.pug`)
         return jade.renderFile(templatePathResolved, localsFull)

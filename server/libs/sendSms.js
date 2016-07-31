@@ -3,7 +3,7 @@ export default async (phone, text) => {
     const params = {
         login: 'bdrive',
         password: 'bdrivepass',
-        sender: 'TeploKnauf',
+        sender: 'ТеплоKNAUF',
         phone,
         sms_test: text
     }

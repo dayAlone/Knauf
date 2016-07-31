@@ -2,9 +2,9 @@
 doctype html
 html
     head
-        if title
-            title= title.page
-        meta(name='description', content='#{description}')
+        if texts.seo_title
+            title= texts.seo_title
+        meta(name='description', content=texts.seo_description)
         meta(charset="utf-8")
         meta(name="viewport",content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1")
         meta(name="apple-mobile-web-app-capable", content="yes")
@@ -13,16 +13,19 @@ html
 
         include includes/social
         include includes/favicons
-        script(src="https://use.typekit.net/uof6mzc.js")
-        script.
-            try{Typekit.load({ async: true });}catch(e){}
-    body(style='opacity: 0; transition: .3s opacity', data-hotellook-campaign='patriot')
-        include includes/counters
 
-        - var login = ['facebook', 'google', 'odnoklassniki', 'twitter', 'vkontakte']
-        each el in login
-            a(href='/auth/'+ el + '/login/')= el
-            br
-        br
-        a(href='/auth/logout/') Exit
+    body.page(data-env=env)
+
+        #app
+
+        script.
+            var place = Object.freeze(!{JSON.stringify(place)}) || false
+            var texts = Object.freeze(!{JSON.stringify(texts)}) || {}
+
         link(href='/layout/css/style.css' rel="stylesheet")
+        script(src="/layout/js/app.js" defer async)
+
+
+
+        if env === 'production'
+            include includes/counters

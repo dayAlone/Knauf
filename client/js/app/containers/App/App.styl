@@ -1,0 +1,39 @@
+
+.page
+    min-height: 100vh
+    background-color white
+    background-image url(/layout/images/bg@1x.jpg)
+    background-size cover
+    +retina()
+        background-image url(/layout/images/bg@2x.jpg)
+
+#app
+    width: 100%
+
+.app
+
+    position relative
+    height: 100vh
+
+    &__container
+        max-width: 1172px
+        margin: 0 auto
+        width: 100%
+        display: flex
+        flex-direction: column
+    &--open
+        position fixed
+        top 0
+        left 0
+    &__footer
+        margin-bottom 25px
+    &__rules
+        font-size 13px
+        color alpha(black, .4)
+        text-decoration none
+
+        border-line(alpha(black, .2), 13px)
+        transition: .3s color
+        &:hover
+            color black
+            border-line(alpha(black, .5), 13px)

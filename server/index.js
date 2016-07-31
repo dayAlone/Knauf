@@ -17,7 +17,7 @@ co(function*() {
     const connection = yield initConnection()
     const models = yield initModels(connection)
 
-    initMiddlewares(app, connection)
+    initMiddlewares(app, connection, models)
     initControllers(app, models)
     app.use(() => {
         this.models = models

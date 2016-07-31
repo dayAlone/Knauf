@@ -1,0 +1,32 @@
+{
+  "name": "postcss-responsive-with-coefficients",
+  "version": "0.0.0",
+  "description": "PostCSS plugin You specify only one value for a given media query, then plugin multiplyies these values for each media query.",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "media-queries"
+  ],
+  "author": "wwju <wwju@yandex.ru>",
+  "license": "MIT",
+  "repository": "wwju/postcss-responsive-with-coefficients",
+  "bugs": {
+    "url": "https://github.com/wwju/postcss-responsive-with-coefficients/issues"
+  },
+  "homepage": "https://github.com/wwju/postcss-responsive-with-coefficients",
+  "dependencies": {
+    "postcss": "^5.0.21"
+  },
+  "devDependencies": {
+    "ava": "^0.14.0",
+    "eslint": "^2.10.0",
+    "eslint-config-postcss": "^2.0.2"
+  },
+  "scripts": {
+    "test": "ava && eslint *.js"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-postcss/es5"
+  }
+}

@@ -1,5 +1,5 @@
 import { BIGINT, TEXT, STRING, BOOLEAN } from 'sequelize'
-import { dir, api, folders } from 'config'
+import { dir, api, folders, db } from 'config'
 import randomstring from 'randomstring'
 import path from 'path'
 import url from 'url'
@@ -96,7 +96,7 @@ export default sequelize => function* () {
             beforeCreate: prepareValue
         }
     })
-    yield Text.sync()
+    // yield Text.sync()
     const texts = parseText(yaml.load(fs.readFileSync(`${dir}/config/texts.yml`)))
 
     for (const key in texts) {

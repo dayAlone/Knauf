@@ -1,0 +1,37 @@
+.toolbar
+    width: 100%
+    display: flex
+    justify-content: space-between
+    align-items: center
+    z-index: 300
+    padding: 20px 0px
+    font-size 13px
+    color black
+    &__logo
+        line-height 0
+        img
+            width: 222px
+    &__timer,
+    &__logo
+        min-width: 25%
+    &__timer
+        text-align right
+    &__title
+        font-size 38px
+        color orange
+        font-weight bold
+        line-height 1
+        padding: 12px 20px 2px
+        position relative
+        min-height: 52px
+        min-width: 435px
+        &:after
+            position absolute
+            size 100%
+            content: ""
+            background-color white
+            border-radius: 15px 0 15px 0
+            left 0
+            top 0
+            z-index: -1
+            transform: skewX(-10deg)
